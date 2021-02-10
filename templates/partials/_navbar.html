@@ -1,0 +1,119 @@
+{% load static %}
+<!-- Navbar -->
+
+  <div class="header" id="sticky">
+      <div class="col-xs-6">
+        <a href="{% url 'index' %}"><img id="picid" src="{% static 'images/clogo.png' %}" alt="logo" /></a>
+      <span class="menu"></span>
+       
+      <div class="top-menu" >
+
+        <ul>
+          <li><a class="active scroll" href="{% url 'index' %}"><i class="fa fa-home"> </i>Home</a></li>
+          <li><a class="touch" href="{% url 'about' %}"><i class="fa fa-star"> </i> About</a></li>
+          <li><a class="touch" href="{% url 'listings' %}"><i class="fa fa-picture-o"> </i>Listings</a></li>
+          
+          <div class="clearfix"></div>
+        </ul>
+      </div>
+      
+      <!-- <script>
+        $("span.menu").click(function () {
+          $(".top-menu").slideToggle("slow", function () {
+            // Animation complete.
+          });
+        });
+
+        
+    
+      </script> -->
+     </div>
+   
+    <div class="col-xs-6 header_right ">
+      <span class="menu"></span>
+      <!-- <div class="top-menu" id="topid"> -->
+      <div class="top-menu" >
+
+        <ul id="uid">
+ 
+          
+           {% if user.is_authenticated %}
+           <div class="dash">
+            <div class="board">
+          <li> <a  href="{% url 'dashboard' %}"><span id="span1" >
+            {{ user.first_name.0 }}</span></a> </li>
+          <li><a href="{% url 'edit' %}"> <i class="fa fa-chevron-right"  aria-hidden="true" style="font-size: 28px;"></i></a></li>
+          <li>
+          <li> <a href="{% url 'show-notifications' %}" ><i class="fa fa-bell" style="font-size: 16px;"></i>
+      
+          {% if count_notifications %}
+          <span class="badge" style="font-size:12px;background-color: red;">{{ count_notifications }}</span>
+          {% endif %}
+      
+          </a></li>
+
+          <li> <a href="{% url 'contact-notifications' %}" ><i class="fas fa-comment" style="font-size: 16px;"></i>
+      
+          {% if contact_count_notifications %}
+          <span class="badge" style="font-size:12px;background-color: red;">{{ contact_count_notifications }}</span>
+          {% endif %}
+      
+          </a></li>
+
+
+<!--  -->
+<!-- <a href="{% url 'show-notifications' %}" class="navbar-item">
+        <i class="material-icons">notifications</i>
+        Notifications
+        {% if count_notifications %}
+          <span class="badge">{{ count_notifications }}</span>
+        {% endif %}
+      </a> -->
+
+
+      <!--  -->
+            <li> <a  href="{% url 'addpg' %}"><i class="fa fa-user"> </i>
+            Add Pg</a></li>
+          <li>
+          <a href="javascript:{document.getElementById('logout').submit()}" >
+            <i class="fa fa-sign-out"></i>Logout
+          </a>
+          <form action="{% url 'logout' %}" method="POST" id="logout">
+            {% csrf_token %}
+            <input type="hidden">
+          </form>
+        </li>
+      </div>
+      </div>
+     
+        {% else %}
+          <div id= "topid">
+          <li><a class="active scroll" href="{% url 'register' %}"><i class='fa fa-user'></i>Register</a></li>
+          <li><a href="{% url 'logins' %}"><i class="fa fa-sign-in"> </i> Login</a></li>
+        </div>
+          
+          
+          <div class="clearfix"></div>
+           {% endif %}
+        </ul>
+      </div>
+      
+      <script>
+        $("span.menu").click(function (event) {
+          $(".top-menu").slideToggle("slow", function () {
+            // Animation complete.
+          });
+        });
+      </script>
+      
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+
+
+
+
+
+
+
+

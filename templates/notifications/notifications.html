@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Notifications {% endblock %}
+{% block content %}
+
+
+   
+     <div class="container">
+    
+  <div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <hr>
+          
+          <img src="{% static 'images/avatar.jpg' %}" class="avatar img-circle" alt="avatar">
+          
+          <div class="col-6">
+            <hr>
+                <a href="{% url 'dashboard'%}" class="btn btn-primary btn-block">View Profile</a>
+              </div>
+        </div>
+      </div>
+      
+      
+      <div class="col-md-9 personal-info " style="border: 2px solid #d1e0e0;border-bottom: none; ">
+        <div class="header"><br>
+        <h2><strong>Notifications</strong></h2>
+        {% for notification in notifications %}
+        <div class="alertmsg">
+        <span class="closebtn" ><a href="{% url 'delete-notification' notification.id %}" >&times;</a></span> 
+        <strong>{{notification.sender}}!</strong> visited your contact information
+       </div>
+       {% endfor %}
+
+        
+        </div>
+        <hr>
+        
+      </div>
+  </div>
+</div>
+<hr> 
+
+
+{% endblock %}

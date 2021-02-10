@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% block title %} WhiteBricks Inc Pvt Ltd | Add Pg {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    
+  <div class="row">
+      
+      
+      <!-- edit form column -->
+      
+      <div class="col-md-6 personal-info " id="editform">
+        <div class="header"><br>
+        <h2><strong>Post your  Ads</strong></h2>
+        
+        </div>
+        <hr>
+        <form action="{% url 'addpg' %}" method="post" autocomplete="off" enctype="multipart/form-data" class="form-horizontal" role="form">
+              {% csrf_token %} 
+        <input type="hidden" name="real" value="{{user.id}}">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Title:</label>
+            <div class="col-lg-8">
+              {{form.title}}
+            </div>
+          </div>
+          <!-- phone -->
+         {% for realt in realtor %}
+
+          {%if realt.phone%}
+           <div class="form-group">
+            <label class="col-lg-3 control-label">Phone:</label>
+            <div class="col-lg-8">
+              <input type="text" name="pnum" value="{{realt.phone}}">
+            </div>
+          </div>
+          {%else%}
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Phone:</label>
+            <div class="col-lg-8">
+              <input type="text" name="pnum" value="{{form.phone}}">
+            </div>
+          </div>
+          {%endif%}
+          {%endfor%}
+
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Address:</label>
+            <div class="col-lg-8">
+              {{form.address}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">City:</label>
+            <div class="col-lg-8">
+              {{form.city}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">State:</label>
+            <div class="col-lg-8">
+              {{form.state}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Zipcode:</label>
+            <div class="col-lg-8">
+              {{form.zipcode}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Price:</label>
+            <div class="col-lg-8">
+              {{form.price}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Bedrooms:</label>
+            <div class="col-lg-8">
+              {{form.bedrooms}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Bathrooms:</label>
+            <div class="col-lg-8">
+              {{form.bathrooms}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Garage:</label>
+            <div class="col-lg-8">
+              {{form.garage}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Sqft:</label>
+            <div class="col-lg-8">
+              {{form.sqft}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Lot_size:</label>
+            <div class="col-lg-8">
+              {{form.lot_size}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_main:</label>
+            <div class="col-lg-8">
+              {{form.photo_main}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_1:</label>
+            <div class="col-lg-8">
+              {{form.photo_1}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_2:</label>
+            <div class="col-lg-8">
+              {{form.photo_2}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_3:</label>
+            <div class="col-lg-8">
+              {{form.photo_3}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_4:</label>
+            <div class="col-lg-8">
+              {{form.photo_4}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">Photo_5:</label>
+            <div class="col-lg-8">
+              {{form.photo_5}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">photo_6:</label>
+            <div class="col-lg-8">
+              {{form.photo_6}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">is_published:</label>
+            <div class="col-lg-8">
+              {{form.is_published}}
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label class="col-lg-3 control-label">List_date:</label>
+            <div class="col-lg-8">
+              {{form.list_date}}
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              
+              <input type="submit" value="Post Now" class="btn btn-primary">
+              <span></span>
+              <input type="reset" class="btn btn-primary" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container"> 
+        <div class="col-md-12 offset-md-1 mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4">Post your  Ads</h1>
+                <p class="lead font-italic">Python Django project for implementing CRUD operations</p>
+                <hr class="my-4">
+                <form action="{% url 'addpg' %} " method="post" autocomplete="off" enctype="multipart/form-data">
+                {% csrf_token %}
+               <input type="hidden" name="real" value="{{user.id}}">
+                
+                {{form.title}} 
+                {{form.address}} 
+
+                {{form.city}} 
+
+                {{form.state}} 
+
+                {{form.zipcode}} 
+
+                {{form.description}}
+                {{form.price}} 
+
+                {{form.bedrooms}} 
+                {{form.bathrooms}} 
+                {{form.garage}} 
+                {{form.sqft}} 
+                {{form.lot_size}} 
+                {{form.photo_main}} 
+                {{form.photo_1}} 
+                {{form.photo_2}} 
+                {{form.photo_3}} 
+                {{form.photo_4}} 
+                {{form.photo_5}} 
+                {{form.photo_6}} 
+                {{form.is_published}} 
+                {{form.list_date}} <hr/>
+
+
+                <div class="col-6">
+                <button type="submit" class="btn btn-success btn-block btn-lg">
+                Post Now</button>
+              </div>
+
+</form>
+
+              
+    
+
+
+    
+    
+  </div>  
+    
+    
+
+
+            </div>
+        </div>-->
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
